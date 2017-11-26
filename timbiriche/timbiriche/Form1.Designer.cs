@@ -120,6 +120,7 @@
             this.Controls.Add(this.lblJugador);
             this.Controls.Add(this.lblPuntaje);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
