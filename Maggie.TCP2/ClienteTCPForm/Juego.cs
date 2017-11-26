@@ -61,7 +61,7 @@ namespace ClienteTCPForm
             ipAddr = ipHost.AddressList[0];
             ipEndPoint = new IPEndPoint(ipAddr, 8000);
 
-            client.Connect("192.168.0.7", 8000);
+            client.Connect("192.168.0.16", 8000);
             if (client.Connected)
             {
                 Thread t = new Thread(Listen);
