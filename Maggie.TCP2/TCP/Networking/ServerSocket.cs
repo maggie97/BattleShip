@@ -13,11 +13,11 @@ namespace TCP.Networking
     {
 
         private Socket _socket;
-        private List<Socket> listSocket;
-        byte[] _buffer = new byte[1024];
+        //private List<Socket> listSocket;
+        //byte[] _buffer = new byte[1024];
 
-        private TcpListener server;
-        private TcpClient client = new TcpClient();
+        private TcpListener servidorPrincipal;
+        private TcpClient cliente = new TcpClient();
         private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, 8000);
         private IPAddress ipAddr;
         private IPHostEntry ipHost;
@@ -36,24 +36,25 @@ namespace TCP.Networking
         public ServerSocket()
         {
             //listSocket = new List<Socket>();
-            //_socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Load();
         }
         public void Load()
         {
-            ipHost = Dns.GetHostEntry("");
+            ipHost = Dns.GetHostEntry(Dns.GetHostName());
             ipAddr = ipHost.AddressList[0];
+            ipEndPoint = new IPEndPoint(ipAddr, 8000);
             Console.WriteLine("Servidor Listo");
-            server = new TcpListener(ipEndPoint);
-            server.Start();
+            servidorPrincipal = new TcpListener(ipEndPoint);
+            servidorPrincipal.Start();
             permission = new SocketPermission(NetworkAccess.Accept, TransportType.Tcp, "", SocketPermission.AllPorts);
             _socket = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             
             while (true)
             {
-                client = server.AcceptTcpClient();
+                cliente = servidorPrincipal.AcceptTcpClient();
                 con = new Connection();
-                con.stream = client.GetStream();
+                con.stream = cliente.GetStream();
                 con.streamR = new StreamReader(con.stream);
                 con.streamW = new StreamWriter(con.stream);
 
@@ -94,6 +95,7 @@ namespace TCP.Networking
                 }
             } while (true);
         }
+        /*
         public void Bind(int port)
         {
             _socket.Bind(new IPEndPoint(IPAddress.Any, port));
@@ -141,6 +143,6 @@ namespace TCP.Networking
 
             _buffer = new byte[1024];
             clientSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, ReceivedCallback, clientSocket);
-        }
+        }*/
     }
 }

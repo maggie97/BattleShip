@@ -68,6 +68,7 @@
             this.Controls.Add(this.txtEnvia);
             this.Name = "Juego";
             this.Text = "Juego";
+            this.Load += new System.EventHandler(this.Juego_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

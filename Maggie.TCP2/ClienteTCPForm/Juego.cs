@@ -22,6 +22,10 @@ namespace ClienteTCPForm
         static private StreamWriter streamW;
         static private TcpClient client = new TcpClient();
 
+        private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, 8000);
+        private IPAddress ipAddr;
+        private IPHostEntry ipHost;
+
         private delegate void DAddItem(String s); 
 
         public Juego(string nombre)
@@ -53,7 +57,11 @@ namespace ClienteTCPForm
         }
         private void Conectar()
         {
-            client.Connect("127.0.0.1", 8000);
+            ipHost = Dns.GetHostEntry(Dns.GetHostName());
+            ipAddr = ipHost.AddressList[0];
+            ipEndPoint = new IPEndPoint(ipAddr, 8000);
+
+            client.Connect("192.168.0.7", 8000);
             if (client.Connected)
             {
                 Thread t = new Thread(Listen);
@@ -99,6 +107,11 @@ namespace ClienteTCPForm
                     break;
             }
             Application.Exit();
+        }
+
+        private void Juego_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
