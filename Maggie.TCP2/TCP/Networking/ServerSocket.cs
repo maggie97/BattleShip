@@ -14,19 +14,13 @@ namespace TCP.Networking
 
         private Socket _socket;
         //private List<Socket> listSocket;
-<<<<<<< HEAD
         //byte[] _buffer = new byte[1024];
 
         private TcpListener servidorPrincipal;
-        private TcpClient cliente = new TcpClient();
-        private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, 8000);
-=======
-        byte[] _buffer = new byte[1024];
 
         private TcpListener server;
-        private TcpClient client = new TcpClient();
+        private TcpClient cliente = new TcpClient();
         private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.7"), 8000);
->>>>>>> origin/master
         private IPAddress ipAddr;
         private IPHostEntry ipHost;
         private SocketPermission permission;
@@ -103,7 +97,6 @@ namespace TCP.Networking
                 }
             } while (true);
         }
-<<<<<<< HEAD
         /*
         public void Bind(int port)
 =======
