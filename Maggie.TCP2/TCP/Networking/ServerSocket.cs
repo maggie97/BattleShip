@@ -13,12 +13,12 @@ namespace TCP.Networking
     {
 
         private Socket _socket;
-        private List<Socket> listSocket;
+        //private List<Socket> listSocket;
         byte[] _buffer = new byte[1024];
 
         private TcpListener server;
         private TcpClient client = new TcpClient();
-        private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Any, 8000);
+        private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.7"), 8000);
         private IPAddress ipAddr;
         private IPHostEntry ipHost;
         private SocketPermission permission;
@@ -94,7 +94,7 @@ namespace TCP.Networking
                 }
             } while (true);
         }
-        public void Bind(int port)
+       /* public void Bind(int port)
         {
             _socket.Bind(new IPEndPoint(IPAddress.Any, port));
         }
@@ -141,6 +141,6 @@ namespace TCP.Networking
 
             _buffer = new byte[1024];
             clientSocket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, ReceivedCallback, clientSocket);
-        }
+        }*/
     }
 }

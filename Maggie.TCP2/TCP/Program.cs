@@ -13,9 +13,9 @@ namespace TCP
 
         static void Main(string[] args)
         {
-            serverSocket.Bind(6556);
-            serverSocket.Listen(500);
-            serverSocket.Accept();
+           // serverSocket.Bind(6556);
+            //serverSocket.Listen(500);
+            //serverSocket.Accept();
 
             while (true)
             {
