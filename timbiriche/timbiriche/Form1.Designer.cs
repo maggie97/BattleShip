@@ -32,10 +32,10 @@
             this.lblPuntaje = new System.Windows.Forms.Label();
             this.lblJugador = new System.Windows.Forms.Label();
             this.lblPuntos = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtJugador = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEnvia = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnNext = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,6 +51,7 @@
             // 
             this.lblPuntaje.AutoSize = true;
             this.lblPuntaje.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPuntaje.ForeColor = System.Drawing.Color.Cornsilk;
             this.lblPuntaje.Location = new System.Drawing.Point(478, 119);
             this.lblPuntaje.Name = "lblPuntaje";
             this.lblPuntaje.Size = new System.Drawing.Size(73, 22);
@@ -61,6 +62,7 @@
             // 
             this.lblJugador.AutoSize = true;
             this.lblJugador.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJugador.ForeColor = System.Drawing.Color.White;
             this.lblJugador.Location = new System.Drawing.Point(478, 54);
             this.lblJugador.Name = "lblJugador";
             this.lblJugador.Size = new System.Drawing.Size(74, 22);
@@ -76,52 +78,59 @@
             this.lblPuntos.Size = new System.Drawing.Size(0, 22);
             this.lblPuntos.TabIndex = 4;
             // 
-            // textBox1
+            // txtEnvia
             // 
-            this.textBox1.Location = new System.Drawing.Point(482, 213);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtEnvia.Location = new System.Drawing.Point(481, 398);
+            this.txtEnvia.Name = "txtEnvia";
+            this.txtEnvia.Size = new System.Drawing.Size(180, 20);
+            this.txtEnvia.TabIndex = 5;
             // 
-            // button1
+            // btnSend
             // 
-            this.button1.Location = new System.Drawing.Point(586, 184);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(561, 424);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(101, 23);
+            this.btnSend.TabIndex = 6;
+            this.btnSend.Text = "Send Message";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
-            // txtJugador
+            // listBox1
             // 
-            this.txtJugador.Location = new System.Drawing.Point(561, 55);
-            this.txtJugador.Name = "txtJugador";
-            this.txtJugador.Size = new System.Drawing.Size(100, 20);
-            this.txtJugador.TabIndex = 7;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(481, 243);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(180, 147);
+            this.listBox1.TabIndex = 9;
             // 
-            // textBox2
+            // btnNext
             // 
-            this.textBox2.Location = new System.Drawing.Point(482, 269);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 190);
-            this.textBox2.TabIndex = 8;
+            this.btnNext.Location = new System.Drawing.Point(586, 203);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 10;
+            this.btnNext.Text = "Next Turn";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(674, 471);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.txtJugador);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.txtEnvia);
             this.Controls.Add(this.lblPuntos);
             this.Controls.Add(this.lblJugador);
             this.Controls.Add(this.lblPuntaje);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,10 +142,10 @@
         private System.Windows.Forms.Label lblPuntaje;
         private System.Windows.Forms.Label lblJugador;
         private System.Windows.Forms.Label lblPuntos;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtJugador;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEnvia;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnNext;
     }
 }
 
