@@ -64,10 +64,10 @@ namespace timbiriche
                 }
             #endregion 
             xml = new XmlDocument();
-            xml.Load(strXML);
+            //xml.Load(strXML);
             //conecta al servidor 
             IntentaConexion();
-            InicializaXML();
+            //InicializaXML();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e) //dibuja el timbiriche
@@ -117,6 +117,7 @@ namespace timbiriche
             objCuadro.SetAttribute("Ganado", "false");
             objCuadro.SetAttribute("Jugador", "none");
         }
+
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < 15; i++)
@@ -126,7 +127,7 @@ namespace timbiriche
                         && e.Y > cuadricula[i, j].P.Y && e.Y < cuadricula[i, j].P.Y + cuadricula[i, j].S.Height )
                     {
                         if(i%2 == 0 || j%2 == 0)
-                            cuadricula[i, j].C = Color.Red;
+                            cuadricula[i, j].C = Color.Red; 
                         if (cuadricula[i, j].Barco)
                             cuadricula[i, j].C = Color.Gray;
                         break;
@@ -134,12 +135,11 @@ namespace timbiriche
                 }
             panel1.Invalidate();
         }
-        
+      
         private void AddItem(String s)
         {
             listBox1.Items.Add(s);
         }
-
         private void btnSend_Click(object sender, EventArgs e)
         {
             streamW.WriteLine(txtEnvia.Text);
@@ -182,7 +182,6 @@ namespace timbiriche
                 Exit(1);
             }
         }
-
         private void Listen()
         {
             while (client.Connected)
@@ -223,6 +222,67 @@ namespace timbiriche
             streamW.WriteLine(xml);
             streamW.Flush();
             txtEnvia.Clear();
+        }
+        int cuadriTam = 15;
+        private void Juega()
+        {
+            bool cuadCerrado = true;
+            for (int i = 0; i < cuadriTam; i++)
+                for (int j = 0; j < cuadriTam; j++)
+                {
+
+                    if (j % 2 == 0 && i % 2 != 0) //lineas horizontales
+                    {
+                        if(cuadricula[i, j].C == Color.Gray)
+                        {
+                            if (LineaVertical(i, j))
+                            {
+                                cuadCerrado = true;
+                                Console.WriteLine
+                            }
+                            else if(j == 1)
+                            {
+                                //primer columna
+                            }
+                            else if(j == cuadriTam - 2)
+                            {
+                                //ultima columna
+                            }
+                            else
+                            {
+                                //columnas y filas internas
+                            }
+                        }
+                    }
+                    else if (i % 2 == 0 && j % 2 != 0) //lineas verticales
+                    {
+                        
+                    }
+                }
+        }
+        private bool LineaVertical(int i , int j)
+        {
+            bool vertical = false;
+            if (i == 1)
+            {
+                //linea superior
+                if (cuadricula[i + 2, j].C == Color.Gray)
+                    vertical = true;
+            }
+            else if (i == cuadriTam - 2)
+            {
+                //ultima linea
+                if (cuadricula[i - 2, j].C == Color.Gray)
+                    vertical = true;
+            }
+            else
+            {
+                if (cuadricula[i + 2, j].C == Color.Gray)
+                    vertical = true;
+                else if (cuadricula[i - 2, j].C == Color.Gray)
+                    vertical = true;
+            }
+            return vertical;
         }
     }
 }

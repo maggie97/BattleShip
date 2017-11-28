@@ -20,7 +20,7 @@ namespace TCP.Networking
 
         private TcpListener server;
         private TcpClient cliente = new TcpClient();
-        private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.7"), 8000);
+        private IPEndPoint ipEndPoint = new IPEndPoint(IPAddress.Parse("148.224.51.252")/*IPAddress.Any*/, 8000);
         private IPAddress ipAddr;
         private IPHostEntry ipHost;
         private SocketPermission permission;
@@ -45,7 +45,7 @@ namespace TCP.Networking
         {
             ipHost = Dns.GetHostEntry(Dns.GetHostName());
             ipAddr = ipHost.AddressList[0];
-            ipEndPoint = new IPEndPoint(ipAddr, 8000);
+            ipEndPoint = new IPEndPoint(IPAddress.Parse("148.224.51.252"), 8000);
             Console.WriteLine("Servidor Listo");
             servidorPrincipal = new TcpListener(ipEndPoint);
             servidorPrincipal.Start();
@@ -76,12 +76,22 @@ namespace TCP.Networking
                 try
                 {
                     string tmp = hcon.streamR.ReadLine();
-                    Console.WriteLine(hcon.name + " : " + tmp);
+                    //lo que escribe el usuario
+                    if (tmp.Contains("coords")){
+                        Console.WriteLine(hcon.name + " :  ah echo su movimiento" );
+                    }
+                    else 
+                        Console.WriteLine(hcon.name + " : " + tmp);
                     foreach (Connection c in list)
                     {
                         try
                         {
-                            c.streamW.WriteLine(hcon.name + " : " + tmp);
+                            //c.streamW.WriteLine(hcon.name + " : " + tmp);
+                            if (tmp.Contains("coords")){
+                                c.streamW.WriteLine(hcon.name + " :  ah echo su movimiento" + tmp);
+                            }
+                            else
+                                c.streamW.WriteLine(hcon.name + " : " + tmp);
                             c.streamW.Flush();
                         }
                         catch

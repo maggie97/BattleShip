@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
+    <Compile Include="Cuadro.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +92,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BATTLESHIP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barco1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barco2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barco3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
