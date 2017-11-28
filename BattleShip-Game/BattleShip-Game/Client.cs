@@ -28,10 +28,12 @@ namespace BattleShip_Game
         private IPHostEntry ipHost;
         #endregion
         Form1 juego;
+        public string n;
 
-        public Client()
+        public Client(string nombre)
         {
-            juego = new Form1();
+            n = nombre;
+            
         }
         public Point Valores()
         {
@@ -42,18 +44,11 @@ namespace BattleShip_Game
         {
             if (s.Contains("coords"))
             {
+                //decodifica 
                 int x = Convert.ToInt16(s.Substring(s.IndexOf("coords") + 7, 2));
                 int y = Convert.ToInt16(s.Substring(s.LastIndexOf(",") + 1, 2));
                     
             }
-                /*puntosEnemy = b = Convert.ToInt16(s.Substring(s.IndexOf("Puntos =") + 8, 3));
-                cuadricula[x, y].C = Color.FromArgb(r, g, b);
-                Juega(x, y);
-                panel1.Invalidate();
-            }
-            else
-                listBox1.Items.Add(s);*/
-            //listBox1.Items.Add(s);
         }
         private void SendChat(String s)
         {
@@ -72,6 +67,8 @@ namespace BattleShip_Game
             {
                 Exit(1);
             }
+            juego = new Form1(n);
+            juego.Visible = true;
         }
         private void Conectar()
         {
@@ -79,7 +76,7 @@ namespace BattleShip_Game
             ipAddr = ipHost.AddressList[0];
             ipEndPoint = new IPEndPoint(ipAddr, 8000);
 
-            client.Connect("148.224.51.252", 8000);//"192.168.0.16", 8000);
+            client.Connect("10.103.35.170", 8000);
             if (client.Connected)
             {
                 Thread t = new Thread(Listen);
@@ -124,7 +121,7 @@ namespace BattleShip_Game
                     MessageBox.Show("No se ha podido conectar al servidor");
                     break;
             }
-            juego.Close();
+            //juego.Close();
             Application.Exit();
         }
     }

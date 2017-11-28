@@ -22,7 +22,7 @@ namespace BattleShip_Game
         {
             name = Player.Text;
             Client c = new Client(name);
-
+            c.IntentaConexion();
             //Form1 f = new Form1(name);
             //this.Close();
            // f.Visible = true;

@@ -45,7 +45,7 @@ namespace TCP.Networking
         {
             ipHost = Dns.GetHostEntry(Dns.GetHostName());
             ipAddr = ipHost.AddressList[0];
-            ipEndPoint = new IPEndPoint(IPAddress.Parse("148.224.51.252"), 8000);
+            ipEndPoint = new IPEndPoint(IPAddress.Parse("10.103.35.170"), 8000);
             Console.WriteLine("Servidor Listo");
             servidorPrincipal = new TcpListener(ipEndPoint);
             servidorPrincipal.Start();
