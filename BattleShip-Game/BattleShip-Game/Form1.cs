@@ -21,10 +21,10 @@ namespace BattleShip_Game
         public static Cuadro[,] areaPropia = new Cuadro[8, 8];
         bool Barco1, Barco3, Barco5, Empezar;
         private Size tam = new Size(50, 50);
-        public Form1()
+        public Form1(string nombre)
         {
             InitializeComponent();
-
+            lbName.Text = nombre;
             Barco1 = Barco3 = Barco5 = Empezar = false;
             #region
 
@@ -82,6 +82,11 @@ namespace BattleShip_Game
             btnBarco1.Visible = false;
             btnBarco3.Visible = false;
             btnBarco5.Visible = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnBarco5_Click(object sender, EventArgs e) { Barco5 = true; }

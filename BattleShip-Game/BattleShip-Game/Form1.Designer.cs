@@ -37,6 +37,8 @@
             this.btnBarco3 = new System.Windows.Forms.Button();
             this.btnBarco5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,10 +70,10 @@
             // 
             // btnEmpezar
             // 
-            this.btnEmpezar.Font = new System.Drawing.Font("Minion Pro", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpezar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmpezar.Location = new System.Drawing.Point(568, 217);
             this.btnEmpezar.Name = "btnEmpezar";
-            this.btnEmpezar.Size = new System.Drawing.Size(75, 31);
+            this.btnEmpezar.Size = new System.Drawing.Size(93, 31);
             this.btnEmpezar.TabIndex = 12;
             this.btnEmpezar.Text = "Empezar";
             this.btnEmpezar.UseVisualStyleBackColor = true;
@@ -123,11 +125,33 @@
             this.checkBox1.Text = "Horizontal";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(527, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Jugador :";
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(595, 13);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(48, 18);
+            this.lbName.TabIndex = 16;
+            this.lbName.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.lbName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.btnEmpezar);
@@ -138,7 +162,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "BattleShip";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,6 +180,8 @@
         private System.Windows.Forms.Button btnBarco3;
         private System.Windows.Forms.Button btnBarco5;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbName;
     }
 }
 
