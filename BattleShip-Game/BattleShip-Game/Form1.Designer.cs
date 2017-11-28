@@ -36,7 +36,7 @@
             this.btnBarco1 = new System.Windows.Forms.Button();
             this.btnBarco3 = new System.Windows.Forms.Button();
             this.btnBarco5 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chBHorizontal = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -77,6 +77,7 @@
             this.btnEmpezar.TabIndex = 12;
             this.btnEmpezar.Text = "Empezar";
             this.btnEmpezar.UseVisualStyleBackColor = true;
+            this.btnEmpezar.Click += new System.EventHandler(this.btnEmpezar_Click);
             // 
             // label1
             // 
@@ -96,6 +97,7 @@
             this.btnBarco1.Size = new System.Drawing.Size(44, 61);
             this.btnBarco1.TabIndex = 10;
             this.btnBarco1.UseVisualStyleBackColor = true;
+            this.btnBarco1.Click += new System.EventHandler(this.btnBarco1_Click);
             // 
             // btnBarco3
             // 
@@ -105,6 +107,7 @@
             this.btnBarco3.Size = new System.Drawing.Size(44, 61);
             this.btnBarco3.TabIndex = 9;
             this.btnBarco3.UseVisualStyleBackColor = true;
+            this.btnBarco3.Click += new System.EventHandler(this.btnBarco3_Click);
             // 
             // btnBarco5
             // 
@@ -114,16 +117,17 @@
             this.btnBarco5.Size = new System.Drawing.Size(43, 61);
             this.btnBarco5.TabIndex = 8;
             this.btnBarco5.UseVisualStyleBackColor = true;
+            this.btnBarco5.Click += new System.EventHandler(this.btnBarco5_Click);
             // 
-            // checkBox1
+            // chBHorizontal
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(568, 185);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(73, 17);
-            this.checkBox1.TabIndex = 14;
-            this.checkBox1.Text = "Horizontal";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chBHorizontal.AutoSize = true;
+            this.chBHorizontal.Location = new System.Drawing.Point(568, 185);
+            this.chBHorizontal.Name = "chBHorizontal";
+            this.chBHorizontal.Size = new System.Drawing.Size(73, 17);
+            this.chBHorizontal.TabIndex = 14;
+            this.chBHorizontal.Text = "Horizontal";
+            this.chBHorizontal.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -152,7 +156,7 @@
             this.ClientSize = new System.Drawing.Size(734, 461);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chBHorizontal);
             this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.btnEmpezar);
             this.Controls.Add(this.label1);
@@ -163,7 +167,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "BattleShip";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,7 +182,7 @@
         private System.Windows.Forms.Button btnBarco1;
         private System.Windows.Forms.Button btnBarco3;
         private System.Windows.Forms.Button btnBarco5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chBHorizontal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbName;
     }
