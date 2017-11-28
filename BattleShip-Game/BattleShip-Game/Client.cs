@@ -42,13 +42,13 @@ namespace BattleShip_Game
         } 
         public void AddItem(String s)
         {
-            if (s.Contains("coords"))
+            if (s.Contains("click="))
             {
                 //decodifica 
-                int x = Convert.ToInt16(s.Substring(s.IndexOf("coords") + 7, 2));
+                int x = Convert.ToInt16(s.Substring(s.IndexOf("click=") + 7, 2));
                 int y = Convert.ToInt16(s.Substring(s.LastIndexOf(",") + 1, 2));
-                    
             }
+
         }
         private void SendChat(String s)
         {
